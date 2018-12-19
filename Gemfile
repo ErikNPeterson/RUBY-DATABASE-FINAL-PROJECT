@@ -52,3 +52,6 @@ gem 'mime-types'
 gem 'netrc'
 gem 'http-accept', '~> 1.7'
 gem 'http-cookie'
+
+#for API key need for seeding 
+gem 'dotenv-rails', groups: [:development, :test]

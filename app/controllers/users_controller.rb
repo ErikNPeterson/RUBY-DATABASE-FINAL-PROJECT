@@ -4,6 +4,9 @@ class UsersController < ApplicationController
     render json: @users
   end
 
+  
+
+
   def create
     user = User.new(
       username: params[:username],

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
+  # changed this to add show
   resources :users do 
-    resources :events, except: [:index]
+    resources :events, only: [:index, :show]
   end
-
 
   # resources :events
   # get '/events' => 'events#index'

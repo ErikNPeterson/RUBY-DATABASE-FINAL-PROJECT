@@ -4,36 +4,18 @@ class UsersController < ApplicationController
     render json: @users
   end
 
-  def new
-  end
-  
   def create
-    user = User.new(user_params)
+    user = User.new(
+      username: params[:username],
+      email: params[:email],
+      password: params[:password]
+    )
+
     if user.save
-      session[:user_id] = user.id
-      redirect_to '/'
+      render json: user
+      # session[:user_id] = user.id
     else
-      redirect_to '/signup'
+      head :unprocessable_entity
     end
   end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:firstName, :lastName, :email, :password, :password_confirmation)
-  end
-
-  # def create
-  #   user = User.new(
-  #     username: params[:username],
-  #     email: params[:email],
-  #     password: params[:password]
-  #   )
-
-  #   if user.save
-  #     render json: user
-  #   else
-  #     head :unprocessable_entity
-  #   end
-  # end
 end

@@ -44,3 +44,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+gem 'rest-client'
+#rest-client dependencies
+gem 'mime-types'
+gem 'netrc'
+gem 'http-accept', '~> 1.7'
+gem 'http-cookie'

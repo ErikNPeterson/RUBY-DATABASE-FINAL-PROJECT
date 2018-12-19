@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_174044) do
+ActiveRecord::Schema.define(version: 2018_12_18_213501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 2018_12_18_174044) do
     t.string "longitude"
     t.boolean "is_free"
     t.string "cost"
+    t.bigint "category_id"
+    t.string "venue_name"
+    t.index ["category_id"], name: "index_events_on_category_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -67,4 +70,5 @@ ActiveRecord::Schema.define(version: 2018_12_18_174044) do
     t.index ["user_id"], name: "index_users_events_on_user_id"
   end
 
+  add_foreign_key "events", "categories"
 end

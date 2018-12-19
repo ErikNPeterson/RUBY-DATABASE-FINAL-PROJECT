@@ -8,11 +8,16 @@ class EventsController < ApplicationController
     render json: @events, status: :ok
   end
 
-  def show
-    puts "in detail"
-    puts params["id"]
+  def show 
     @event = Event.find params[:id]
     render json: @event, status: :ok
   end
+
+  # def show
+  #   puts "in detail"
+  #   puts params["id"]
+  #   @event = Event.find params[:id]
+  #   render json: @event, status: :ok
+  # end
 
 end
